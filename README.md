@@ -1,5 +1,7 @@
 # MainAngularAdminPanel
 
+This is my main page along woth skill show and portfolio page. P. S. Looking for job ;)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 ## Development server
