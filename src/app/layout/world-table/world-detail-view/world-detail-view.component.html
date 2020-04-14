@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row" style="align-items: auto;">
+                <div class="col-md-3"><label style="font-weight: bold;">Country: </label> <span> {{ model?.country }} </span></div>
+                <div class="col-md-3"><label style="font-weight: bold;">Total Cases: </label> <span> {{ model?.total_cases }} </span></div>
+                <div class="col-md-3"><label style="font-weight: bold;">Deaths: </label> <span> {{ model?.deaths }} </span></div>
+                <div class="col-md-3"><label style="font-weight: bold;">Recovered: </label> <span> {{ model?.recovered }} </span></div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="action_btn" style="float: right;">
+                <fa-icon class="icon_btn" (click)="editRecipe()" style="margin: 0px 4px 0px 4px; cursor: pointer;" icon="edit" size="lg" title="Edit"></fa-icon>
+                <fa-icon class="icon_btn" (click)="deleteWorldRow(model)" style="margin: 0px 4px 0px 4px; cursor: pointer;" icon="trash-alt" size="lg" title="Delete"></fa-icon>
+            </div>
+        </div>
+    </div>
+</div>

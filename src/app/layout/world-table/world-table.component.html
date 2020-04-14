@@ -1,0 +1,17 @@
+<div class="row" style="overflow: overlay;">
+    <div class="container">
+    
+      <div id="worldTable" class="col-lg-12">
+        <angular-slickgrid
+          gridId="worldTableGrid"
+          [columnDefinitions]="columnDefinitions"
+          [gridOptions]="gridOptions"
+          [gridHeight]="700"
+          [dataset]="dataset"
+          (onAngularGridCreated)="angularGridReady($event)"
+          (onGridStateChanged)="gridStateChanged($event)"
+          (paginationChanged)="onPaginationChanged($event)"
+          >
+        </angular-slickgrid>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<div class="wrapper">
+    <ngb-tabset>
+        <ngb-tab title="General Coronavirus Statistics">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ng-select
+                                        [items]="loadedData"
+                                        bindLabel="country"
+                                        autofocus
+                                        bindValue="id"
+                                        placeholder="Select Country"
+                                        [(ngModel)]="selectedCountry"
+                                        (ngModelChange)="searchData(selectedCountry)"
+                                        [multiple]="false"
+                                        [closeOnSelect]="true"
+                                        [searchable]="true"
+                                    ></ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                    <ng-select
+                                        [items]="loadedData"
+                                        bindLabel="country"
+                                        autofocus
+                                        bindValue="id"
+                                        placeholder="Select Country"
+                                        [(ngModel)]="selectedCountry2"
+                                        (ngModelChange)="searchData2(selectedCountry2)"
+                                        [multiple]="false"
+                                        [closeOnSelect]="true"
+                                        [searchable]="true"
+                                    ></ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                    <ng-select
+                                        [items]="loadedData"
+                                        bindLabel="country"
+                                        autofocus
+                                        bindValue="id"
+                                        placeholder="Select Country"
+                                        [(ngModel)]="selectedCountry3"
+                                        (ngModelChange)="searchData3(selectedCountry3)"
+                                        [multiple]="false"
+                                        [closeOnSelect]="true"
+                                        [searchable]="true"
+                                    ></ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                    <ng-select
+                                        [items]="loadedData"
+                                        bindLabel="country"
+                                        autofocus
+                                        bindValue="id"
+                                        placeholder="Select Country"
+                                        [(ngModel)]="selectedCountry4"
+                                        (ngModelChange)="searchData4(selectedCountry4)"
+                                        [multiple]="false"
+                                        [closeOnSelect]="true"
+                                        [searchable]="true"
+                                    ></ng-select>
+                                </div>
+                                <div class="col-md-3">
+                                    <ng-select
+                                        [items]="loadedData"
+                                        bindLabel="country"
+                                        autofocus
+                                        bindValue="id"
+                                        placeholder="Select Country"
+                                        [(ngModel)]="selectedCountry5"
+                                        (ngModelChange)="searchData5(selectedCountry5)"
+                                        [multiple]="false"
+                                        [closeOnSelect]="true"
+                                        [searchable]="true"
+                                    ></ng-select>
+                                </div>
+                                    
+                            </div>
+                            
+                            
+                            <canvas baseChart 
+                                [datasets]="barChartData"
+                                [labels]="barChartLabels"
+                                [options]="barChartOptions"
+                                [plugins]="barChartPlugins"
+                                [legend]="barChartLegend"
+                                [chartType]="barChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <button (click)="constructPie()">Refresh Data</button>
+                            <canvas baseChart 
+                                [data]="pieChartData" 
+                                [labels]="pieChartLabels" 
+                                [chartType]="pieChartType"
+                                [options]="pieChartOptions"
+                                [plugins]="pieChartPlugins"
+                                [legend]="pieChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <!-- RANDOM NAV TAB -->
+        <ngb-tab title="RANDOM NAV TAB">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Just an example - nothing to see here...</p>
+                        <div class="card mb-3">
+                            <canvas baseChart 
+                                [datasets]="barChartData"
+                                [labels]="barChartLabels"
+                                [options]="barChartOptions"
+                                [plugins]="barChartPlugins"
+                                [legend]="barChartLegend"
+                                [chartType]="barChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+</div>
+
+<!-- <ul>
+    <li *ngFor="let data of loadedData">
+        {{ data.country }} : {{ data.deaths }}
+    </li>
+</ul> -->

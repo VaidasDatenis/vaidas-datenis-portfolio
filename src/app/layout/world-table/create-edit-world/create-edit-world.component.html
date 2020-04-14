@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col=md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="worldForm" (ngSubmit)="updateData(worldData.value)" 
+                #worldData="ngForm" class="border border-light p-5">
+                <p class="h4 text-center mb-4">{{ guid === '0' ? 'Create new Data!' : 'Update World Data!' }}</p>
+                <!-- COUNTRY -->
+                <div class="form-group">
+                    <div class="col text-left">
+                        <span>Country: </span>
+                        <input class="form-control" formControlName="country" type="text" id="country" required>
+                        <span *ngIf="!worldForm.get('country').valid && worldForm.get('country').touched"
+                            class="help-block">Please enter country!</span>
+                    </div>
+                </div>
+                <!-- Total Cases -->
+                <div class="form-group">
+                    <div class="col text-left">
+                        <span>Total Cases: </span>
+                        <input class="form-control" formControlName="total_cases" type="number" id="total_cases" required>
+                        <span *ngIf="!worldForm.get('total_cases').valid && worldForm.get('total_cases').touched"
+                            class="help-block">Please enter total cases number</span>
+                    </div>
+                </div>
+                <!-- DEATHS -->
+                <div class="form-group">
+                    <div class="col text-left">
+                        <span>Deaths: </span>
+                        <input class="form-control" formControlName="deaths" type="number" id="deaths" required>
+                        <span *ngIf="!worldForm.get('deaths').valid && worldForm.get('deaths').touched"
+                            class="help-block">Please enter number of deaths</span>
+                    </div>
+                </div>
+                <!-- RECOVERED -->
+                <div class="form-group">
+                    <div class="col text-left">
+                        <span>Recovered: </span>
+                        <input class="form-control" formControlName="recovered" type="number" id="recovered" required>
+                        <span *ngIf="!worldForm.get('recovered').valid && worldForm.get('recovered').touched"
+                            class="help-block">Please enter number of recovered</span>
+                    </div>
+                </div>
+                <button class="btn btn-info my-4 btn-block" type="submit" [disabled]="!worldForm.valid">
+                    {{ guid==='0' ? 'Create!' : 'Update!' }}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

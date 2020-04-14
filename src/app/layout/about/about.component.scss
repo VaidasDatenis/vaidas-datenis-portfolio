@@ -1,0 +1,77 @@
+$normal-grey: grey;
+$white-grey: rgb(211, 211, 211);
+
+.wrapper {
+    background-color: rgb(200,200,200);
+    padding: 15px;
+    margin: 0px;
+
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-auto-flow: dense;
+    background-color: $normal-grey;
+
+    .box {
+        background-color: $white-grey;
+        border-radius: 5px;
+        padding: 10px;
+
+        .card {
+            .card-body {
+                background-color: $white-grey;
+            }
+        }
+    }
+
+    .a {
+        grid-column: 1 ;
+        grid-row: 1;
+    }
+
+    .b {
+        grid-column: 2 / 3 ;
+        grid-row: 1 ;
+    }
+
+    .c {
+        grid-column: 3 / 4;
+        grid-row: 1 ;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+    }
+
+    .d {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+
+    .e {
+        grid-column: 2 / 4;
+        grid-row: 2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  
+    }
+
+    .f {
+        grid-column: 1 / 4;
+        grid-row: 3;
+
+        .card {
+            background-color: $white-grey;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 0px 15px;
+            padding: 10px 10px;
+            border: none;
+        }
+
+        .card:hover {
+            cursor: pointer;
+        }
+    }
+
+}
