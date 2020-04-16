@@ -91,7 +91,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       item[k].toString().toLowerCase()
       .includes(value.toLowerCase()))
     );
-    console.log(this.searchedData);
     this.barChartLabels[0] = this.searchedData[0].country;
     this.barChartData[0].data[0] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
     this.barChartData[1].data[0] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
@@ -104,7 +103,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       item[k].toString().toLowerCase()
       .includes(value.toLowerCase()))
     );
-    console.log(this.searchedData);
     this.barChartLabels[1] = this.searchedData[0].country;
     this.barChartData[0].data[1] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
     this.barChartData[1].data[1] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
@@ -117,7 +115,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       item[k].toString().toLowerCase()
       .includes(value.toLowerCase()))
     );
-    console.log(this.searchedData);
     this.barChartLabels[2] = this.searchedData[0].country;
     this.barChartData[0].data[2] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
     this.barChartData[1].data[2] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
@@ -130,7 +127,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       item[k].toString().toLowerCase()
       .includes(value.toLowerCase()))
     );
-    console.log(this.searchedData);
     this.barChartLabels[3] = this.searchedData[0].country;
     this.barChartData[0].data[3] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
     this.barChartData[1].data[3] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
@@ -143,7 +139,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       item[k].toString().toLowerCase()
       .includes(value.toLowerCase()))
     );
-    console.log(this.searchedData);
     this.barChartLabels[4] = this.searchedData[0].country;
     this.barChartData[0].data[4] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
     this.barChartData[1].data[4] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
@@ -160,9 +155,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.pieChartData[0] = this.searchedData[6].total_cases[0].toString().replace(',', '').replace(' ', '').replace(',', '');
     this.pieChartData[1] = this.searchedData[6].deaths[0].toString().replace(',', '').replace(' ', '').replace(',', '');
     this.pieChartData[2] = this.searchedData[6].recovered[0].toString().replace(',', '').replace(' ', '').replace(',', '');
-    console.log(this.pieChartData[0]);
-    console.log(this.pieChartData[1]);
-    console.log(this.pieChartData[2]);
   }
 
 }

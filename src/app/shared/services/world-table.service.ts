@@ -19,24 +19,11 @@ export class WorldTableService {
   }
 
   updateWorldData(guid, data) {
-    // this.firestore.collection('cases').doc(guid.payload.doc.data).set({ completed: true }, { merge: true });
-    // delete data.id;
-    console.log('Updating...');
-    console.log(guid);
-    console.log(data);
-    // this.firestore.collection('cases').doc(data.id).collection(data).update(data);
-    this.firestore.doc(`cases/${guid}`).update({ rating: data });
-    console.log('Updated!');
+    this.firestore.doc(`cases/${guid}`).update(data);
   }
 
-  // deleteWorlRecord(dataId: string) {
-  //   // this.firestore.collection('cases').doc(dataId).delete();
-  //   console.log('Deleting...');
-  //   this.firestore.doc('cases/' + dataId).delete();
-  //   console.log('Deleted!');
-  // }
   deleteWorlRecord(model) {
-    return this.firestore.collection('cases').doc(model.payload.doc.id).delete();
+    return this.firestore.doc(`cases/${model.id}`).delete();
   }
 
 }

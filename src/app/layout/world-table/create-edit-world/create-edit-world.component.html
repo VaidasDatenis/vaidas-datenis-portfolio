@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <div class="col text-left">
                         <span>Country: </span>
-                        <input class="form-control" formControlName="country" type="text" id="country" required>
+                        <input class="form-control" formControlName="country" type="text" id="country" required />
                         <span *ngIf="!worldForm.get('country').valid && worldForm.get('country').touched"
                             class="help-block">Please enter country!</span>
                     </div>
@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <div class="col text-left">
                         <span>Total Cases: </span>
-                        <input class="form-control" formControlName="total_cases" type="number" id="total_cases" required>
+                        <input class="form-control" formControlName="total_cases" type="number" id="total_cases" required />
                         <span *ngIf="!worldForm.get('total_cases').valid && worldForm.get('total_cases').touched"
                             class="help-block">Please enter total cases number</span>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <div class="col text-left">
                         <span>Deaths: </span>
-                        <input class="form-control" formControlName="deaths" type="number" id="deaths" required>
+                        <input class="form-control" formControlName="deaths" type="number" id="deaths" required />
                         <span *ngIf="!worldForm.get('deaths').valid && worldForm.get('deaths').touched"
                             class="help-block">Please enter number of deaths</span>
                     </div>
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <div class="col text-left">
                         <span>Recovered: </span>
-                        <input class="form-control" formControlName="recovered" type="number" id="recovered" required>
+                        <input class="form-control" formControlName="recovered" type="number" id="recovered" required />
                         <span *ngIf="!worldForm.get('recovered').valid && worldForm.get('recovered').touched"
                             class="help-block">Please enter number of recovered</span>
                     </div>

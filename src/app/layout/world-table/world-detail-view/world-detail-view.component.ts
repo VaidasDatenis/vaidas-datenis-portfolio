@@ -28,7 +28,6 @@ export class WorldDetailViewComponent implements OnInit {
   }
 
   editRecipe() {
-    console.log('Editing...');
     this.router.navigate(['/worldTable/' + this.model.id]);
   }
 

@@ -36,10 +36,8 @@ export class CreateEditWorldComponent implements OnInit {
           console.log('Creating new record.');
         } else {
           this.isFetching = true;
-          console.log('Editing Record: ' + this.guid);
           this.worldService.getDataById(this.guid)
             .subscribe(world => {
-              console.log(world);
               this.worldForm.patchValue({
                 country: world['country'].toString().replace(' ', ''),
                 total_cases: world['total_cases'].toString().replace(',', '').replace(' ', '').replace(',', ''),

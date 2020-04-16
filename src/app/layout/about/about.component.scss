@@ -55,9 +55,29 @@ $white-grey: rgb(211, 211, 211);
         object-fit: cover;  
     }
 
-    .f {
+    .x {
         grid-column: 1 / 4;
         grid-row: 3;
+        text-align: center;
+
+        .round {
+            margin: auto;
+            padding: 20px 10px;
+            width: 450px;
+            height: 320px;
+            border-radius: 100px;
+            border: 1px solid $normal-grey;
+            background-color: $white-grey;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .f {
+        grid-column: 1 / 4;
+        grid-row: 4;
 
         .card {
             background-color: $white-grey;
