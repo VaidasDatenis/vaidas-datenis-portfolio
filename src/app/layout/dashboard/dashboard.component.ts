@@ -92,9 +92,23 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .includes(value.toLowerCase()))
     );
     this.barChartLabels[0] = this.searchedData[0].country;
-    this.barChartData[0].data[0] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[1].data[0] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[2].data[0] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(' ', '');
+    this.barChartData[0].data[0] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[1].data[0] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[2].data[0] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    // pie
+    this.pieChartOptions = {
+      responsive: true,
+      title: {
+        display: true,
+        text: this.searchedData[0].country[0]
+      }
+    };
+    this.pieChartType = 'pie';
+    this.pieChartLegend = true;
+    this.pieChartPlugins = [];
+    this.pieChartData[0] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.pieChartData[1] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.pieChartData[2] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
   }
 
   searchData2(value: string) {
@@ -104,9 +118,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .includes(value.toLowerCase()))
     );
     this.barChartLabels[1] = this.searchedData[0].country;
-    this.barChartData[0].data[1] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[1].data[1] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[2].data[1] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(' ', '');
+    this.barChartData[0].data[1] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[1].data[1] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[2].data[1] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
   }
 
   searchData3(value: string) {
@@ -116,9 +130,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .includes(value.toLowerCase()))
     );
     this.barChartLabels[2] = this.searchedData[0].country;
-    this.barChartData[0].data[2] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[1].data[2] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[2].data[2] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(' ', '');
+    this.barChartData[0].data[2] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[1].data[2] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[2].data[2] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
   }
 
   searchData4(value: string) {
@@ -128,9 +142,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .includes(value.toLowerCase()))
     );
     this.barChartLabels[3] = this.searchedData[0].country;
-    this.barChartData[0].data[3] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[1].data[3] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[2].data[3] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(' ', '');
+    this.barChartData[0].data[3] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[1].data[3] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[2].data[3] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
   }
 
   searchData5(value: string) {
@@ -140,21 +154,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       .includes(value.toLowerCase()))
     );
     this.barChartLabels[4] = this.searchedData[0].country;
-    this.barChartData[0].data[4] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[1].data[4] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(' ', '');
-    this.barChartData[2].data[4] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(' ', '');
+    this.barChartData[0].data[4] = this.searchedData[0].total_cases[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[1].data[4] = this.searchedData[0].deaths[0].toString().replace(',', '').replace(',', '').replace(' ', '');
+    this.barChartData[2].data[4] = this.searchedData[0].recovered[0].toString().replace(',', '').replace(',', '').replace(' ', '');
   }
 
-  constructPie() {
-    const value = 'Total:';
-    this.searchedData = this.loadedData.filter(item =>
-      Object.keys(item).some(k => item[k] != null &&
-      item[k].toString().toLowerCase()
-      .includes(value.toLowerCase()))
-    );
-    this.pieChartData[0] = this.searchedData[6].total_cases[0].toString().replace(',', '').replace(' ', '').replace(',', '');
-    this.pieChartData[1] = this.searchedData[6].deaths[0].toString().replace(',', '').replace(' ', '').replace(',', '');
-    this.pieChartData[2] = this.searchedData[6].recovered[0].toString().replace(',', '').replace(' ', '').replace(',', '');
-  }
+  // constructPie() {
+  //   const value = 'Total:';
+  //   this.searchedData = this.loadedData.filter(item =>
+  //     Object.keys(item).some(k => item[k] != null &&
+  //     item[k].toString().toLowerCase()
+  //     .includes(value.toLowerCase()))
+  //   );
+  //   this.pieChartData[0] = this.searchedData[6].total_cases[0].toString().replace(',', '').replace(' ', '').replace(',', '');
+  //   this.pieChartData[1] = this.searchedData[6].deaths[0].toString().replace(',', '').replace(' ', '').replace(',', '');
+  //   this.pieChartData[2] = this.searchedData[6].recovered[0].toString().replace(',', '').replace(' ', '').replace(',', '');
+  // }
 
 }
