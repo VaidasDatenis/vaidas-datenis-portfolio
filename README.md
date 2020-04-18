@@ -2,6 +2,11 @@
 
 This is my main page along woth skill show and portfolio page.
 I am scraping and loading data to this page every morning.
+https://corona-statistics-54724.firebaseapp.com/dashboard
+In this page I want show my some skill set.. I user Canvas for charts, with loaded data from Firebase,
+also using reactive forms module for CRUD principles. My About page is styled with CSS Grid teech.
+World Data I'm displaying with SlickGrid.
+
 P. S. Looking for job ;)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
