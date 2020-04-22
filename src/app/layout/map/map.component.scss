@@ -4,14 +4,31 @@
     top: 10px;
 }
 
-.job-card {
-    margin: 2px;
-    padding: 4px;
-    border-bottom: 1px solid black;
+.marker {
+    display: block;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+    padding: 0;
+}
 
-    #navigate {
-        padding: 3px;
-        margin: 2px;
-        border-radius: 25px;
+.col-md-3.x {
+    height: 850px;
+    overflow: auto;
+
+    .box-scroll {
+        height: 6500px;
+
+        .job-card {
+            margin: 2px;
+            padding: 4px;
+            border-bottom: 1px solid black;
+        
+            #navigate {
+                padding: 3px;
+                margin: 2px;
+                border-radius: 25px;
+            }
+        }
     }
 }

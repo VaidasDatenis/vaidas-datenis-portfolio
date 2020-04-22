@@ -11,6 +11,6 @@ export const environment = {
         measurementId: 'G-Y6V4CS8S0Y'
     },
     mapbox: {
-        accessToken: 'pk.eyJ1IjoiZGF0ZW5pcy12IiwiYSI6ImNrOThmZTJlajA2NWIzbWs0emN2OTcxaG8ifQ.2cDUmmrpmmEnIM45K4wyVQ'
+        accessToken: 'pk.eyJ1IjoiZGF0ZW5pcy12IiwiYSI6ImNrN2dndHpjcjBjN3UzbXBlNjk3OW02MmMifQ.RGCkmkLn1-Zd9m6fhJwQQA'
     }
 };

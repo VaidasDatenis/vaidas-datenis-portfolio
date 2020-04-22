@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { MapboxService } from '../../shared/services/mapbox.service';
 import { GeoJson, FeatureCollection } from './map';
-import { environment } from '../../../environments/enviroment';
 
 var MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 
@@ -15,13 +14,16 @@ var MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 export class MapComponent implements OnInit {
   // default settings
   map: mapboxgl.Map;
-  style = 'mapbox://style/mapbox/outdoors-v9';
+  style = 'mapbox://styles/mapbox/streets-v11';
   lat = 54.687157;
   lng = 25.279652;
   message = '';
+  coords: any;
   // data
   source: any;
   markers: any = {};
+  marker: any;
+  newMarker: GeoJson;
 
   constructor(private mapboxService: MapboxService) { }
 
@@ -45,22 +47,59 @@ export class MapComponent implements OnInit {
   }
 
   buildMap() {
-    const conf = {
+    this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 13,
+      zoom: 16,
       center: [this.lng, this.lat]
-    };
-    this.map = new mapboxgl.Map(conf);
-    // add map controls
+    });
+
+    this.map.on("load", function () {
+      /* Image: An image is loaded and added to the this.map. */
+      this.map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+        if (error) throw error;
+        this.map.addImage("custom-marker", image);
+        /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the this.map. */
+        this.map.addLayer({
+          id: "markers",
+          type: "symbol",
+          /* Source: A data source specifies the geographic coordinate where the image marker gets placed. */
+          source: {
+            type: "geojson",
+            data: {
+              type: 'FeatureCollection',
+              features: [
+                {
+                  type: 'Feature',
+                  properties: {
+                    title: this.marker.title,
+                    description: this.marker.location
+                  },
+                  geometry: {
+                    type: "Point",
+                    coordinates: [25.2887, 54.6874]
+                  }
+                }
+              ]
+            }
+          },
+          layout: {
+            "icon-allow-overlap": true,
+            "icon-image": "custom-marker",
+            "icon-size": 0.5
+          }
+        });
+      });
+    });
     this.map.addControl(new mapboxgl.NavigationControl());
     // add marker on click
     this.map.on('click', (event) => {
       const coordinates = [event.lngLat.lng, event.lngLat.lat];
-      const newMarker = new GeoJson(coordinates, { message: this.message });
-      this.mapboxService.createMarker(newMarker);
+      this.coords = coordinates;
+      console.log(this.coords);
+      this.newMarker = new GeoJson(coordinates, { message: this.message });
+      // this.mapboxService.createMarker(newMarker);
     });
-
     this.map.addSource('firebase', {
       type: 'geojson',
       data: {
@@ -68,64 +107,46 @@ export class MapComponent implements OnInit {
         features: []
       }
     });
-
+    this.map.on('styledata', () => {
+      this.map.addLayer({
+        id: 'firebase',
+        source: 'firebase',
+        type: 'symbol',
+        layout: {
+          'text-field': '{message}',
+          'text-size': '16',
+          'text-transform': 'uppercase',
+          'icon-image': 'rocket-15',
+          'text-offset': [0, 1.5]
+        },
+        paint: {
+          'text-color': '#f16624',
+          'text-halo-color': '#fff',
+          'text-halo-width': 2
+        }
+      });
+    });
     this.source = this.map.getSource('firebase');
     this.markers.subscribe(markers => {
       const data = new FeatureCollection(markers);
       this.source.setData(data);
     });
-    this.map.addLayer({
-      id: 'firebase',
-      source: 'firebase',
-      type: 'symbol',
-      layout: {
-        'text-field': '{message}',
-        'text-size': '16',
-        'text-transform': 'uppercase',
-        'icon-image': 'rocket-15',
-        'text-offset': [0, 1.5]
-      },
-      paint: {
-        'text-color': '#f16624',
-        'text-halo-color': '#fff',
-        'text-halo-width': 2
-      }
-    });
-    this.map.addControl(new MapboxGeocoder({
-      accessToken: environment.mapbox.accessToken,
-      localGeocoder: this.forwardGeocoder,
-      zoom: 14,
-      mapboxgl: mapboxgl
-    }));
   }
 
-  forwardGeocoder(query) {
-    const matchingFeatures = [];
-    for (var i = 0; i < this.markers.features.length; i++) {
-      const feature = this.markers.features[i];
-      if (
-        feature.properties.address
-        .toLowerCase()
-        .search(query.toLowerCase()) !== -1
-      ) {
-        feature['place_name'] = '🌲 ' + feature.properties.title;
-        feature['center'] = feature.geometry.address;
-        feature['place_type'] = ['park'];
-        matchingFeatures.push(feature);
-      }
-    }
-  }
-
-  removeMarker(marker) {
-    this.mapboxService.removeMarker(marker.$key);
+  createMarker(marker) {
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = "url(https://i.imgur.com/MK4NUzI.png)";
+    el.style.width = '20px';
+    el.style.height = '20px';
+    this.marker = new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(this.map);
   }
 
   flyTo(data: GeoJson) {
-    console.log(data.address);
     this.map.flyTo({
-      center: data.address
-      // coordinates
-    })
+      center: data.coordinates
+    });
+    this.createMarker(data.coordinates);
   }
 
 }

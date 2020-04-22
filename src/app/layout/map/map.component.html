@@ -1,28 +1,32 @@
 <div class="container" style="margin: 5px;">
     <div class="row">
         <div class="col-md-12">
-            <input id="geocoder" class="geocoder" type="text" placeholder="Your message..." style="margin: 5px;" />
+            <!-- <input id="geocoder" class="geocoder" type="text" placeholder="Your message..." style="margin: 5px;" /> -->
+            <p>Click on map (long, lat): {{ coords }}</p>
         </div>
     </div>
     
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 x">
                     <h1>Markers</h1>
-                    <div class="job-card" *ngFor="let marker of markers | async">
-                        <div class="row">
-                            <span><b>{{ marker.title }}</b></span>
-                            <span>{{ marker.address }}</span>
-                        </div>
-                        <div class="row">
-                            <button id="navigate" class="btn btn-primary" (click)="flyTo(marker)">GO</button>
-                            <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button>
+                    <div class="box-scroll">
+                        <div class="job-card" *ngFor="let marker of markers | async">
+                            <div class="row">
+                                <span><b>{{ marker.title }}</b></span>
+                                <span>{{ marker.address }}</span>
+                                <i>{{ marker.salary }} &euro;</i>
+                            </div>
+                            <div class="row">
+                                <button id="navigate" class="btn btn-primary" (click)="flyTo(marker)">GO</button>
+                                <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div style="width: 70vw; height: 100vh; margin: 0px 100px 0px 0px;" id="map"></div>
+                    <div style="width: 70vw; height: 87vh; margin: 0px 100px 0px 0px;" id="map"></div>
                 </div>
             </div>
         </div>
