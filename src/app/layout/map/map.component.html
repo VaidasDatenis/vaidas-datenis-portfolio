@@ -10,20 +10,50 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-3 x">
-                    <h1>Markers</h1>
-                    <div class="box-scroll">
-                        <div class="job-card" *ngFor="let marker of markers | async">
-                            <div class="row">
-                                <span><b>{{ marker.title }}</b></span>
-                                <span>{{ marker.address }}</span>
-                                <i>{{ marker.salary }} &euro;</i>
-                            </div>
-                            <div class="row">
-                                <button id="navigate" class="btn btn-primary" (click)="flyTo(marker)">GO</button>
-                                <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
-                            </div>
-                        </div>
-                    </div>
+                    <ngb-tabset>
+                        <ngb-tab title="Jobs">
+                            <ng-template ngbTabContent>
+                                <div class="box-scroll">
+                                    <div class="job-card" *ngFor="let marker of markers | async">
+                                        <div class="row">
+                                            <span><b>{{ marker.title }}</b></span>
+                                            <span>{{ marker.address }}</span>
+                                            <i>{{ marker.salary }} &euro;</i>
+                                        </div>
+                                        <div class="row">
+                                            <button id="navigate" class="btn btn-primary" (click)="flyTo(marker)">GO</button>
+                                            <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <!-- APARTMENTS -->
+                        <ngb-tab title="Apartments">
+                            <ng-template ngbTabContent>
+                                <div class="box-scroll">
+                                    <div class="job-card" *ngFor="let apartment of apartments | async">
+                                        <div class="row">
+                                            <button class="btn btn-success" (click)="showImage()">Image</button>
+                                            <div *ngIf="showOrNot">
+                                                <img src={{apartment.image}} />
+                                            </div>
+                                            <span><b>{{ apartment.address }}</b></span>
+                                            <br />
+                                            <span>Rooms: {{ apartment.rooms }}</span> <br />
+                                            <br />
+                                            <i>Price: {{ apartment.price }} &euro;</i>
+                                        </div>
+                                        <div class="row">
+                                            <button id="navigate" class="btn btn-primary" (click)="flyTo(apartment)">GO</button>
+                                            <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                   
                 </div>
                 <div class="col-md-9">
                     <div style="width: 70vw; height: 87vh; margin: 0px 100px 0px 0px;" id="map"></div>

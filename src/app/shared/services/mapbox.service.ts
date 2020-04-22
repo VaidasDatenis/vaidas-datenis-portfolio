@@ -12,7 +12,7 @@ export class MapboxService {
   constructor(private firestore: AngularFirestore) { 
     mapboxgl.accessToken = environment.mapbox.accessToken;
   }
-
+  // JOBS
   getJobsData() {
     return this.firestore.collection('jobs').valueChanges();
   }
@@ -29,5 +29,10 @@ export class MapboxService {
 
   getJobById(val) {
     return this.firestore.collection('jobs').doc(val).valueChanges();
+  }
+
+  // APARTMENTS
+  getApartmentsData() {
+    return this.firestore.collection('apartments').valueChanges();
   }
 }

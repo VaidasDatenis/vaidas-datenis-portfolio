@@ -22,14 +22,21 @@ export class MapComponent implements OnInit {
   // data
   source: any;
   markers: any = {};
+  apartments: any = {};
   marker: any;
   newMarker: GeoJson;
+  public showOrNot: boolean = false;
 
   constructor(private mapboxService: MapboxService) { }
 
   ngOnInit() {
     this.markers = this.mapboxService.getJobsData();
+    this.apartments = this.mapboxService.getApartmentsData();
     this.initializeMap();
+  }
+
+  public showImage() {
+    this.showOrNot = !this.showOrNot;
   }
 
   private initializeMap() {
