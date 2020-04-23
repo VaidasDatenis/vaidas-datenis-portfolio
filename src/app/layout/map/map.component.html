@@ -16,7 +16,10 @@
                                 <div class="box-scroll">
                                     <div class="job-card" *ngFor="let marker of markers | async">
                                         <div class="row">
-                                            <span><b>{{ marker.title }}</b></span>
+                                            <span><b>{{ marker.company }}</b></span>
+                                            <a href={{marker.url}} target="blank">
+                                                <span><b>{{ marker.title }}</b></span>
+                                            </a>
                                             <span>{{ marker.address }}</span>
                                             <i>{{ marker.salary }} &euro;</i>
                                         </div>
@@ -32,17 +35,22 @@
                         <ngb-tab title="Apartments">
                             <ng-template ngbTabContent>
                                 <div class="box-scroll">
-                                    <div class="job-card" *ngFor="let apartment of apartments | async">
+                                    <div class="job-card" *ngFor="let apartment of apartments | async; index as i;">
                                         <div class="row">
-                                            <button class="btn btn-success" (click)="showImage()">Image</button>
+                                            <button class="btn btn-success" (click)="showImage(i)" style="margin: 3px;">Image</button>
                                             <div *ngIf="showOrNot">
-                                                <img src={{apartment.image}} />
+                                                <!-- <div [ngSwitch]="currentImage">
+                                                    <div *ngSwitchCase="i"> -->
+                                                        <a [href]="loadLink" target="blank">
+                                                            <img [src]="loadImage" [ngClass]="currentImage(i)" style="width: 270px; height: 165px;" />
+                                                        </a>
+                                                    <!-- </div>
+                                                </div> -->
                                             </div>
                                             <span><b>{{ apartment.address }}</b></span>
-                                            <br />
-                                            <span>Rooms: {{ apartment.rooms }}</span> <br />
-                                            <br />
-                                            <i>Price: {{ apartment.price }} &euro;</i>
+                                            <span style="width: 300px;">Rooms: {{ apartment.rooms }}</span> 
+                                            <span style="width: 300px;">Square: {{ apartment.total_square }}</span> 
+                                            <i style="width: 300px;">Price: {{ apartment.price }}</i>
                                         </div>
                                         <div class="row">
                                             <button id="navigate" class="btn btn-primary" (click)="flyTo(apartment)">GO</button>

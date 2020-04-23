@@ -26,6 +26,9 @@ export class MapComponent implements OnInit {
   marker: any;
   newMarker: GeoJson;
   public showOrNot: boolean = false;
+  public loadImage: string;
+  public loadLink: string;
+  // public currentImage: any;
 
   constructor(private mapboxService: MapboxService) { }
 
@@ -35,8 +38,22 @@ export class MapComponent implements OnInit {
     this.initializeMap();
   }
 
-  public showImage() {
-    this.showOrNot = !this.showOrNot;
+  public showImage(data) {
+    this.apartments.subscribe(res => {
+      this.currentImage(data);
+      console.log(res[data]);
+      console.log(this.showOrNot);
+      // this.currentImage = res[data];
+      this.loadLink = res[data].link;
+      this.loadImage = res[data].image;
+      this.showOrNot = !this.showOrNot;
+    });
+  }
+
+  public currentImage(data) {
+    this.apartments.subscribe(res => {
+      return res[data];
+    });
   }
 
   private initializeMap() {
@@ -63,7 +80,7 @@ export class MapComponent implements OnInit {
 
     this.map.on("load", function () {
       /* Image: An image is loaded and added to the this.map. */
-      this.map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
+      this.map.loadImage("assets/mapboxIcon.png", function(error, image) {
         if (error) throw error;
         this.map.addImage("custom-marker", image);
         /* Style layer: A style layer ties together the source and image and specifies how they are displayed on the this.map. */
@@ -143,7 +160,7 @@ export class MapComponent implements OnInit {
   createMarker(marker) {
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = "url(https://i.imgur.com/MK4NUzI.png)";
+    el.style.backgroundImage = "url(assets/mapboxIcon.png)";
     el.style.width = '20px';
     el.style.height = '20px';
     this.marker = new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(this.map);
@@ -153,7 +170,7 @@ export class MapComponent implements OnInit {
     this.map.flyTo({
       center: data.coordinates
     });
-    this.createMarker(data.coordinates);
+    // this.createMarker(data.coordinates);
   }
 
 }

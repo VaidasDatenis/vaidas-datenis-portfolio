@@ -3,6 +3,9 @@ import { environment } from '../../../environments/enviroment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GeoJson } from '../../layout/map/map';
 import * as mapboxgl from 'mapbox-gl';
+import { Apartment } from '../models/apartments';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +38,8 @@ export class MapboxService {
   getApartmentsData() {
     return this.firestore.collection('apartments').valueChanges();
   }
+
+  // getApartById() {
+  //   return this.firestore.collection('apartments').snapshotChanges();
+  // }
 }
