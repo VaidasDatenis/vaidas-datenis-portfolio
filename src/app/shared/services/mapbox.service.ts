@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/enviroment';
+import { environment } from '../../../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { GeoJson } from '../../layout/map/jobs';
 import * as mapboxgl from 'mapbox-gl';
