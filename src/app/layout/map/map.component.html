@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- <input id="geocoder" class="geocoder" type="text" placeholder="Your message..." style="margin: 5px;" /> -->
-            <p>Click on map (long, lat): {{ coords }}</p>
+            <!-- <p>Click on map (long, lat): {{ coords }}</p> -->
         </div>
     </div>
     
@@ -16,7 +16,7 @@
                                 <div class="box-scroll">
                                     <div class="job-card" *ngFor="let marker of markers | async">
                                         <div class="row">
-                                            <span><b>{{ marker.company }}</b></span>
+                                            <span style="width: 300px;"><b>{{ marker.company }}</b></span>
                                             <a href={{marker.url}} target="blank">
                                                 <span><b>{{ marker.title }}</b></span>
                                             </a>
@@ -38,14 +38,10 @@
                                     <div class="job-card" *ngFor="let apartment of apartments | async; index as i;">
                                         <div class="row">
                                             <button class="btn btn-success" (click)="showImage(i)" style="margin: 3px;">Image</button>
-                                            <div *ngIf="showOrNot">
-                                                <!-- <div [ngSwitch]="currentImage">
-                                                    <div *ngSwitchCase="i"> -->
-                                                        <a [href]="loadLink" target="blank">
-                                                            <img [src]="loadImage" [ngClass]="currentImage(i)" style="width: 270px; height: 165px;" />
-                                                        </a>
-                                                    <!-- </div>
-                                                </div> -->
+                                            <div *ngIf="i == index && showOrNot">
+                                                <a href={{apartment.link}} target="blank">
+                                                    <img src={{apartment.image}} style="width: 270px; height: 165px;" />
+                                                </a>
                                             </div>
                                             <span><b>{{ apartment.address }}</b></span>
                                             <span style="width: 300px;">Rooms: {{ apartment.rooms }}</span> 
@@ -53,7 +49,7 @@
                                             <i style="width: 300px;">Price: {{ apartment.price }}</i>
                                         </div>
                                         <div class="row">
-                                            <button id="navigate" class="btn btn-primary" (click)="flyTo(apartment)">GO</button>
+                                            <button id="navigate" class="btn btn-primary" (click)="goTo(apartment)">GO</button>
                                             <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
                                         </div>
                                     </div>

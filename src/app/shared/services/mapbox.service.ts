@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/enviroment';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { GeoJson } from '../../layout/map/map';
+import { GeoJson } from '../../layout/map/jobs';
 import * as mapboxgl from 'mapbox-gl';
-import { Apartment } from '../models/apartments';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
