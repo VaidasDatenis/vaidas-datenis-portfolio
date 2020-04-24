@@ -1,0 +1,68 @@
+<div class="container" style="margin: 5px;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <input id="geocoder" class="geocoder" type="text" placeholder="Your message..." style="margin: 5px;" /> -->
+            <!-- <p>Click on map (long, lat): {{ coords }}</p> -->
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 x">
+                    <ngb-tabset>
+                        <ngb-tab title="Jobs">
+                            <ng-template ngbTabContent>
+                                <div class="box-scroll">
+                                    <div class="job-card" *ngFor="let marker of markers | async">
+                                        <div class="row">
+                                            <span style="width: 300px;"><b>{{ marker.company }}</b></span>
+                                            <a href={{marker.url}} target="blank">
+                                                <span><b>{{ marker.title }}</b></span>
+                                            </a>
+                                            <span>{{ marker.address }}</span>
+                                            <i>{{ marker.salary }} &euro;</i>
+                                        </div>
+                                        <div class="row">
+                                            <button id="navigate" class="btn btn-primary" (click)="flyTo(marker)">GO</button>
+                                            <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <!-- APARTMENTS -->
+                        <ngb-tab title="Apartments">
+                            <ng-template ngbTabContent>
+                                <div class="box-scroll">
+                                    <div class="job-card" *ngFor="let apartment of apartments | async; index as i;">
+                                        <div class="row">
+                                            <button class="btn btn-success" (click)="showImage(i)" style="margin: 3px;">Image</button>
+                                            <div *ngIf="i == index && showOrNot">
+                                                <a href={{apartment.link}} target="blank">
+                                                    <img src={{apartment.image}} style="width: 270px; height: 165px;" />
+                                                </a>
+                                            </div>
+                                            <span><b>{{ apartment.address }}</b></span>
+                                            <span style="width: 300px;">Rooms: {{ apartment.rooms }}</span> 
+                                            <span style="width: 300px;">Square: {{ apartment.total_square }}</span> 
+                                            <i style="width: 300px;">Price: {{ apartment.price }}</i>
+                                        </div>
+                                        <div class="row">
+                                            <button id="navigate" class="btn btn-primary" (click)="goTo(apartment)">GO</button>
+                                            <!-- <button id="navigate" class="btn btn-danger" (click)="removeMarker(marker)">Delete</button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                   
+                </div>
+                <div class="col-md-9">
+                    <div style="width: 70vw; height: 87vh; margin: 0px 100px 0px 0px;" id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
