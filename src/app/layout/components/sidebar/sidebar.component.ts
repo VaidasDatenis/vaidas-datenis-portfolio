@@ -7,10 +7,10 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  public isActive: boolean;
-  public collapsed: boolean;
-  public showMenu: string;
-  public pushRightClass: string;
+  isActive: boolean;
+  collapsed: boolean;
+  showMenu: string;
+  pushRightClass: string;
 
   @Output() collapsedEvent = new EventEmitter<boolean>();
 
@@ -33,7 +33,12 @@ export class SidebarComponent implements OnInit {
     this.pushRightClass = 'push-right';
   }
 
+  eventCalled() {
+    this.isActive = !this.isActive;
+  }
+
   toggleCollapsed() {
+    console.log("collapsed");
     this.collapsed = !this.collapsed;
     this.collapsedEvent.emit(this.collapsed);
   }

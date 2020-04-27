@@ -1,25 +1,71 @@
-.geocoder {
-    width: 25%;
-    left: 5%;
-    top: 10px;
-}
-
-.col-md-3.x {
-    height: 850px;
-    overflow: auto;
-
-    .box-scroll {
-        height: 6500px;
-
-        .job-card {
-            margin: 2px;
-            padding: 4px;
-            border-bottom: 1px solid black;
-        
-            #navigate {
-                padding: 3px;
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+    .col-md-3.x {
+        height: 650px;
+        width: 370px;
+        overflow: auto;
+    
+        .box-scroll {
+            height: 6500px;
+            width: 250px;
+    
+            .job-card {
                 margin: 2px;
-                border-radius: 25px;
+                padding: 4px;
+                border-bottom: 1px solid black;
+            
+                #navigate {
+                    padding: 3px;
+                    margin: 2px;
+                    border-radius: 25px;
+                }
+            }
+        }
+    }
+    #map {
+        width: 50vw;
+        height: 50vh;
+        margin: 2px 2px;
+        padding: 2px 2px;
+    }
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .geocoder {
+        width: 25%;
+        left: 5%;
+        top: 10px;
+    }
+    
+    .col-md-3.x {
+        height: 850px;
+        overflow: auto;
+    
+        .box-scroll {
+            height: 6500px;
+    
+            .job-card {
+                margin: 2px;
+                padding: 4px;
+                border-bottom: 1px solid black;
+            
+                #navigate {
+                    padding: 3px;
+                    margin: 2px;
+                    border-radius: 25px;
+                }
             }
         }
     }

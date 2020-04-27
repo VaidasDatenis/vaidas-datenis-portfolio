@@ -27,7 +27,7 @@ export class WorldTableComponent implements OnInit {
       value == 'nan' ? '' : value;
 
     this.columnDefinitions = [
-      { id: 'id', name: 'ID', field: 'id', filterable: true, sortable: true, formatter: nullRemovingFormatter },
+      // { id: 'id', name: 'ID', field: 'id', filterable: true, sortable: true, formatter: nullRemovingFormatter },
       { id: 'country', name: 'Country', field: 'country', filterable: true, sortable: true, formatter: nullRemovingFormatter },
       { id: 'total_cases', name: 'Total Cases', field: 'total_cases', filterable: true, sortable: true, formatter: nullRemovingFormatter },
       { id: 'deaths', name: 'Deaths', field: 'deaths', filterable: true, sortable: true, formatter: nullRemovingFormatter },

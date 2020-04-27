@@ -1,21 +1,24 @@
 <nav class="sidebar" [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }">
     <div class="list-group">
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' }}</span>
         </a>
         <a routerLink="/worldTable" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;
             <span>{{ 'World Table' }}</span>
         </a>
         <a routerLink="/mapboxJobsearch" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-map-marker"></i>&nbsp;
             <span>{{ 'Mapbox Job Search' }}</span>
         </a>
         <a routerLink="/about" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-address-card"></i>&nbsp;
             <span>{{ 'About Me' }}</span>
         </a>
     </div>
     <div class="toggle-button" [ngClass]="{ collapsed: collapsed }" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-left"></i>&nbsp;
         <span>{{ 'Collapse Sidebar' }}</span>
-        &nbsp;
     </div>
 </nav>
-  

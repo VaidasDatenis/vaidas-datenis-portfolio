@@ -79,27 +79,30 @@
                                     
                             </div>
                             
-                            
-                            <canvas baseChart 
-                                [datasets]="barChartData"
-                                [labels]="barChartLabels"
-                                [options]="barChartOptions"
-                                [plugins]="barChartPlugins"
-                                [legend]="barChartLegend"
-                                [chartType]="barChartType">
-                            </canvas>
+                            <div >
+                                <canvas id="bar-chart" baseChart 
+                                    [datasets]="barChartData"
+                                    [labels]="barChartLabels"
+                                    [options]="barChartOptions"
+                                    [plugins]="barChartPlugins"
+                                    [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                                </canvas>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card mb-3">
-                            <canvas baseChart 
-                                [data]="pieChartData" 
-                                [labels]="pieChartLabels" 
-                                [chartType]="pieChartType"
-                                [options]="pieChartOptions"
-                                [plugins]="pieChartPlugins"
-                                [legend]="pieChartLegend">
-                            </canvas>
+                            <div id="pie-chart">
+                                <canvas baseChart 
+                                    [data]="pieChartData" 
+                                    [labels]="pieChartLabels" 
+                                    [chartType]="pieChartType"
+                                    [options]="pieChartOptions"
+                                    [plugins]="pieChartPlugins"
+                                    [legend]="pieChartLegend">
+                                </canvas>
+                            </div>
                         </div>
                     </div>
                 </div>

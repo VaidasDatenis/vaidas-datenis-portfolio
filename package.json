@@ -17,6 +17,7 @@
     "@angular/core": "~8.2.14",
     "@angular/fire": "^6.0.0",
     "@angular/forms": "~8.2.14",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
@@ -62,6 +63,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.5.3"
   }
 }
