@@ -12,6 +12,7 @@ const routes: Routes = [
             { path: 'worldTable', loadChildren: './world-table/world-table.module#WorldTableModule' },
             { path: 'worldTable/:guid', loadChildren: './world-table/create-edit-world/create-edit-world.module#CreateEditWorldModule' },
             { path: 'mapboxJobsearch', loadChildren: './map/map.module#MapModule' },
+            { path: 'mobileApp', loadChildren: './mobile-app/mobile-app.module#MobileAppModule' },
             { path: 'about', loadChildren: './about/about.module#AboutModule' }
         ]
     }
