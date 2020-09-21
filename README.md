@@ -7,8 +7,6 @@ In this page I want show my some skill set.. I user Canvas for charts, with load
 also using reactive forms module for CRUD principles. My About page is styled with CSS Grid teech.
 World Data I'm displaying with SlickGrid.
 
-P. S. Looking for job ;)
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 ## Development server
